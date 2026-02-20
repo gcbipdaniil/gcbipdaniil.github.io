@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WriterPro - MyStore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span data-i18n="back">Back</span>
+            </a>
+			<div class="header-controls">
+				<div class="lang-dropdown">
+					<button class="lang-btn" id="lang-btn">
+						<span class="current-lang-label">PL</span>
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="6 9 12 15 18 9"></polyline>
+						</svg>
+					</button>
+					<div class="lang-menu">
+						<button class="lang-option active" data-lang="pl">Polski</button>
+						<button class="lang-option" data-lang="en">English</button>
+						<button class="lang-option" data-lang="ru">Русский</button>
+					</div>
+				</div>
+
+				<button id="theme-toggle" class="icon-btn">
+					<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+					<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+				</button>
+			</div>
+        </div>
+    </header>
+
+    <main class="container app-detail-container">
+        <div class="app-header-hero">
+            <div class="app-icon-large placeholder-blue">
+                <svg viewBox="0 0 24 24" width="64" height="64" fill="white">
+                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                </svg>
+            </div>
+            <div class="app-hero-info">
+                <h1>WriterPro</h1>
+                <h2 data-i18n="wp_subtitle">A powerful desktop application for writers.</h2>
+                <div class="download-group">
+                    <a href="https://github.com/gcbipdaniil/WriterPro/releases" class="download-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M2 3.44l8.66-1.18v9.42H2V3.44zm11.24-1.53L24 0v11.68H13.24V1.91zM2 12.68h8.66v9.42L2 20.92v-8.24zm11.24 0H24V24l-10.76-1.53v-9.79z"/>
+                        </svg>
+                        Windows
+                    </a>
+                    <a href="https://github.com/gcbipdaniil/WriterPro/releases" class="download-btn secondary-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 21.5c-1.5 0-3-1-4-2 .5-1.5 2-2 4-2s3.5.5 4 2c-1 1-2.5 2-4 2zm.5-4c-2 0-3.5-1-4-2.5C7.5 13 6 11 6 8.5 6 5 8.5 2 12 2s6 3 6 6.5c0 2.5-1.5 4.5-2.5 6.5-.5 1.5-2 2.5-3.5 2.5zM10 8a1 1 0 100-2 1 1 0 000 2zm4 0a1 1 0 100-2 1 1 0 000 2z"/>
+                        </svg>
+                        Linux
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-scroll">
+				<div class="img-wrapper loading">
+					<img src="https://github.com/user-attachments/assets/6d3e2917-9973-46c3-9248-37ba01ee44e6" alt="Screenshot 1" loading="lazy">
+				</div>
+				<div class="img-wrapper loading">
+					<img src="https://github.com/user-attachments/assets/39e5a7a3-ef33-463f-9ff3-b7a96ec50036" alt="Screenshot 2" loading="lazy">
+				</div>
+				<div class="img-wrapper loading">
+					<img src="https://github.com/user-attachments/assets/1292bcd4-4985-4d42-95a0-a1d663e4dc43" alt="Screenshot 3" loading="lazy">
+				</div>
+				<div class="img-wrapper loading">
+					<img src="https://github.com/user-attachments/assets/2a5ed475-3d1a-4e00-95aa-5ff0286e3b80" alt="Screenshot 4" loading="lazy">
+				</div>
+				<div class="img-wrapper loading">
+					<img src="https://github.com/user-attachments/assets/f816f68b-2786-48ea-97b1-85fcbf8750d2" alt="Screenshot 5" loading="lazy">
+				</div>
+            </div>
+        </div>
+
+        <div class="app-description">
+            <p class="lead-text" data-i18n="wp_lead">No registrations, no cloud. Just a powerful tool that runs on your computer. Download the installer, install it, and start creating.</p>
+            <p data-i18n="wp_desc">WriterPro is more than just a text editor; it's a complete environment for planning, writing, organizing, and analyzing your creative projects.</p>
+
+            <h3 data-i18n="key_features">Key Features</h3>
+            <ul class="feature-list">
+                <li><strong data-i18n="feat_1_title">Project Navigator:</strong> <span data-i18n="feat_1_desc">Structure your project with chapters and scenes, track storylines with color-coding, visualize your plot on a timeline, and brainstorm with mind maps.</span></li>
+                <li><strong data-i18n="feat_2_title">Characters & Worldbuilding:</strong> <span data-i18n="feat_2_desc">Create detailed profiles for characters, visualize their relationships, and build a database of your world's locations and important objects.</span></li>
+                <li><strong data-i18n="feat_3_title">Powerful Text Editor:</strong> <span data-i18n="feat_3_desc">Work in a distraction-free mode, use typewriter scrolling, get real-time word counts, and customize fonts and themes.</span></li>
+                <li><strong data-i18n="feat_4_title">Inspiration Hub:</strong> <span data-i18n="feat_4_desc">Search and save images from Pinterest, find atmospheric music with the built-in player, and keep notes attached to every scene.</span></li>
+                <li><strong data-i18n="feat_5_title">Analytics & Goals:</strong> <span data-i18n="feat_5_desc">Set and track writing goals, view your daily progress on charts, and automatically count mentions of your characters and locations.</span></li>
+                <li><strong data-i18n="feat_6_title">Export & Backup:</strong> <span data-i18n="feat_6_desc">Export your manuscript to PDF, DOCX, and EPUB. Create full project backups (.wripro files) that include all your text, notes, and media. The app also creates automatic local backups every 10 minutes.</span></li>
+            </ul>
+
+            <h3 data-i18n="license_title">License</h3>
+            <p data-i18n="license_desc">This project is distributed under the MIT License.</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
