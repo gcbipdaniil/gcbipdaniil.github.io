@@ -41,22 +41,20 @@
 
     <main class="container app-detail-container">
         <div class="app-header-hero">
-            <div class="app-icon-large placeholder-blue">
-                <svg viewBox="0 0 24 24" width="64" height="64" fill="white">
-                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                </svg>
-            </div>
+            <div class="app-icon-large">
+				<img src="writerpro-icon.png" alt="WriterPro Icon">
+			</div>
             <div class="app-hero-info">
                 <h1>WriterPro</h1>
                 <h2 data-i18n="wp_subtitle">A powerful desktop application for writers.</h2>
                 <div class="download-group">
-                    <a href="https://github.com/gcbipdaniil/WriterPro/releases" class="download-btn">
+                    <a href="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-Setup-2.3.6.exe" class="download-btn">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                             <path d="M2 3.44l8.66-1.18v9.42H2V3.44zm11.24-1.53L24 0v11.68H13.24V1.91zM2 12.68h8.66v9.42L2 20.92v-8.24zm11.24 0H24V24l-10.76-1.53v-9.79z"/>
                         </svg>
                         Windows
                     </a>
-                    <a href="https://github.com/gcbipdaniil/WriterPro/releases" class="download-btn secondary-btn">
+                    <a href="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-2.3.6.AppImage" class="download-btn secondary-btn">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                             <path d="M12 21.5c-1.5 0-3-1-4-2 .5-1.5 2-2 4-2s3.5.5 4 2c-1 1-2.5 2-4 2zm.5-4c-2 0-3.5-1-4-2.5C7.5 13 6 11 6 8.5 6 5 8.5 2 12 2s6 3 6 6.5c0 2.5-1.5 4.5-2.5 6.5-.5 1.5-2 2.5-3.5 2.5zM10 8a1 1 0 100-2 1 1 0 000 2zm4 0a1 1 0 100-2 1 1 0 000 2z"/>
                         </svg>
@@ -104,6 +102,40 @@
             <p data-i18n="license_desc">This project is distributed under the MIT License.</p>
         </div>
     </main>
+	
+    <div id="image-modal" class="modal">
+        <button class="close-modal">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <img class="modal-content" id="modal-img" alt="Fullscreen Screenshot">
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p data-i18n="dev_info">Designed and developed by Daniil Dudarchuk</p>
+            <div class="contact-links">
+                <span data-i18n="contact">Contact:</span>
+                <a href="https://t.me/lobstertainment" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Telegram
+                </a>
+                <a href="mailto:daniildudarcuk@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                </a>
+            </div>
+        </div>
+    </footer>	
+	
     <script src="script.js"></script>
 </body>
 </html>
