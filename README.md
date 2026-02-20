@@ -1,1 +1,0 @@
-# gcbipdaniil.github.io
