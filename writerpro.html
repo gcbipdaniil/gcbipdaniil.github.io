@@ -3,104 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WriterPro - MyStore</title>
+    <title>WriterPro — MyStore</title>
     <link rel="stylesheet" href="styles.css">
-	
-	<meta name="description" content="A complete environment for planning, writing, organizing, and analyzing your creative projects.">
+
+    <meta name="description" content="A complete environment for planning, writing, organizing, and analyzing your creative projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gcbipdaniil.github.io/writerpro.html">
     <meta property="og:title" content="WriterPro - Powerful Desktop App">
     <meta property="og:description" content="A complete environment for planning, writing, organizing, and analyzing your creative projects.">
     <meta property="og:image" content="https://github.com/user-attachments/assets/6d3e2917-9973-46c3-9248-37ba01ee44e6">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://gcbipdaniil.github.io/writerpro.html">
-    <meta name="twitter:title" content="WriterPro - Powerful Desktop App">
-    <meta name="twitter:description" content="A complete environment for planning, writing, organizing, and analyzing your creative projects.">
-    <meta name="twitter:image" content="https://github.com/user-attachments/assets/6d3e2917-9973-46c3-9248-37ba01ee44e6">
-    <meta name="theme-color" content="#f5f5f7">	
-	
+    <meta name="theme-color" content="#f5f5f7">
+
+    <!-- ANTI-FLASH: применяем тему до первого рендера -->
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
 <body>
     <header class="nav-header">
         <div class="nav-content">
             <a href="index.html" class="back-link">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
                 <span data-i18n="back">Back</span>
             </a>
-			<div class="header-controls">
-				<div class="lang-dropdown">
-					<button class="lang-btn" id="lang-btn">
-						<span class="current-lang-label">PL</span>
-						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					<div class="lang-menu">
-						<button class="lang-option active" data-lang="pl">Polski</button>
-						<button class="lang-option" data-lang="en">English</button>
-						<button class="lang-option" data-lang="ru">Русский</button>
-					</div>
-				</div>
-
-				<button id="theme-toggle" class="icon-btn">
-					<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-					<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-				</button>
-			</div>
+            <div class="header-controls">
+                <div class="lang-dropdown">
+                    <button class="lang-btn">
+                        <span class="current-lang-label">PL</span>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="lang-menu">
+                        <button class="lang-option active" data-lang="pl">Polski</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="ru">Русский</button>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="container app-detail-container">
         <div class="app-header-hero">
             <div class="app-icon-large">
-				<img src="writerpro-icon.png" alt="WriterPro Icon">
-			</div>
+                <img src="writerpro-icon.png" alt="WriterPro Icon" onerror="this.style.display='none'">
+            </div>
             <div class="app-hero-info">
                 <h1>WriterPro</h1>
                 <h2 data-i18n="wp_subtitle">A powerful desktop application for writers.</h2>
                 <div class="download-group">
-                    <a href="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-Setup-2.3.6.exe" class="download-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                            <path d="M2 3.44l8.66-1.18v9.42H2V3.44zm11.24-1.53L24 0v11.68H13.24V1.91zM2 12.68h8.66v9.42L2 20.92v-8.24zm11.24 0H24V24l-10.76-1.53v-9.79z"/>
-                        </svg>
-                        Windows
-                    </a>
-                    <a href="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-2.3.6.AppImage" class="download-btn secondary-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                            <path d="M12 21.5c-1.5 0-3-1-4-2 .5-1.5 2-2 4-2s3.5.5 4 2c-1 1-2.5 2-4 2zm.5-4c-2 0-3.5-1-4-2.5C7.5 13 6 11 6 8.5 6 5 8.5 2 12 2s6 3 6 6.5c0 2.5-1.5 4.5-2.5 6.5-.5 1.5-2 2.5-3.5 2.5zM10 8a1 1 0 100-2 1 1 0 000 2zm4 0a1 1 0 100-2 1 1 0 000 2z"/>
-                        </svg>
-                        Linux
-                    </a>
+                    <!-- Windows -->
+                    <button class="download-btn hero-dl-btn"
+                        data-url="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-Setup-2.3.6.exe"
+                        data-filename="WriterPro-Setup-2.3.6.exe"
+                        data-appname="WriterPro"
+                        data-icon="writerpro-icon.png">
+                        <span class="dl-btn-inner">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 3.44l8.66-1.18v9.42H2V3.44zm11.24-1.53L24 0v11.68H13.24V1.91zM2 12.68h8.66v9.42L2 20.92v-8.24zm11.24 0H24V24l-10.76-1.53v-9.79z"/></svg>
+                            <span class="dl-btn-label">Windows</span>
+                        </span>
+                        <span class="dl-btn-progress-wrap">
+                            <svg class="dl-ring" viewBox="0 0 32 32"><circle class="dl-ring-track" cx="16" cy="16" r="12"/><circle class="dl-ring-fill" cx="16" cy="16" r="12"/></svg>
+                            <span class="dl-btn-pct">0%</span>
+                        </span>
+                        <span class="dl-btn-done-wrap">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Saved</span>
+                        </span>
+                        <div class="dl-bar"><div class="dl-bar-fill"></div></div>
+                    </button>
+                    <!-- Linux -->
+                    <button class="download-btn hero-dl-btn secondary-btn"
+                        data-url="https://github.com/gcbipdaniil/WriterPro/releases/download/WriterPro-2.3.6/WriterPro-2.3.6.AppImage"
+                        data-filename="WriterPro-2.3.6.AppImage"
+                        data-appname="WriterPro"
+                        data-icon="writerpro-icon.png">
+                        <span class="dl-btn-inner">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 21.5c-1.5 0-3-1-4-2 .5-1.5 2-2 4-2s3.5.5 4 2c-1 1-2.5 2-4 2zm.5-4c-2 0-3.5-1-4-2.5C7.5 13 6 11 6 8.5 6 5 8.5 2 12 2s6 3 6 6.5c0 2.5-1.5 4.5-2.5 6.5-.5 1.5-2 2.5-3.5 2.5zM10 8a1 1 0 100-2 1 1 0 000 2zm4 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+                            <span class="dl-btn-label">Linux</span>
+                        </span>
+                        <span class="dl-btn-progress-wrap">
+                            <svg class="dl-ring" viewBox="0 0 32 32"><circle class="dl-ring-track" cx="16" cy="16" r="12"/><circle class="dl-ring-fill" cx="16" cy="16" r="12"/></svg>
+                            <span class="dl-btn-pct">0%</span>
+                        </span>
+                        <span class="dl-btn-done-wrap">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Saved</span>
+                        </span>
+                        <div class="dl-bar"><div class="dl-bar-fill"></div></div>
+                    </button>
                 </div>
             </div>
         </div>
 
         <div class="gallery-container">
             <div class="gallery-scroll">
-				<div class="img-wrapper loading">
-					<img src="https://github.com/user-attachments/assets/6d3e2917-9973-46c3-9248-37ba01ee44e6" alt="Screenshot 1" loading="lazy">
-				</div>
-				<div class="img-wrapper loading">
-					<img src="https://github.com/user-attachments/assets/39e5a7a3-ef33-463f-9ff3-b7a96ec50036" alt="Screenshot 2" loading="lazy">
-				</div>
-				<div class="img-wrapper loading">
-					<img src="https://github.com/user-attachments/assets/1292bcd4-4985-4d42-95a0-a1d663e4dc43" alt="Screenshot 3" loading="lazy">
-				</div>
-				<div class="img-wrapper loading">
-					<img src="https://github.com/user-attachments/assets/2a5ed475-3d1a-4e00-95aa-5ff0286e3b80" alt="Screenshot 4" loading="lazy">
-				</div>
-				<div class="img-wrapper loading">
-					<img src="https://github.com/user-attachments/assets/f816f68b-2786-48ea-97b1-85fcbf8750d2" alt="Screenshot 5" loading="lazy">
-				</div>
+                <div class="img-wrapper loading"><img src="https://github.com/user-attachments/assets/6d3e2917-9973-46c3-9248-37ba01ee44e6" alt="Screenshot 1" loading="lazy"></div>
+                <div class="img-wrapper loading"><img src="https://github.com/user-attachments/assets/39e5a7a3-ef33-463f-9ff3-b7a96ec50036" alt="Screenshot 2" loading="lazy"></div>
+                <div class="img-wrapper loading"><img src="https://github.com/user-attachments/assets/1292bcd4-4985-4d42-95a0-a1d663e4dc43" alt="Screenshot 3" loading="lazy"></div>
+                <div class="img-wrapper loading"><img src="https://github.com/user-attachments/assets/2a5ed475-3d1a-4e00-95aa-5ff0286e3b80" alt="Screenshot 4" loading="lazy"></div>
+                <div class="img-wrapper loading"><img src="https://github.com/user-attachments/assets/f816f68b-2786-48ea-97b1-85fcbf8750d2" alt="Screenshot 5" loading="lazy"></div>
             </div>
         </div>
 
         <div class="app-description">
-            <p class="lead-text" data-i18n="wp_lead">No registrations, no cloud. Just a powerful tool that runs on your computer. Download the installer, install it, and start creating.</p>
-            <p data-i18n="wp_desc">WriterPro is more than just a text editor; it's a complete environment for planning, writing, organizing, and analyzing your creative projects.</p>
+            <p class="lead-text" data-i18n="wp_lead">No registrations, no cloud. Just a powerful tool that runs on your computer.</p>
+            <p data-i18n="wp_desc">WriterPro is a complete environment for planning, writing, organizing, and analyzing your creative projects.</p>
 
             <h3 data-i18n="key_features">Key Features</h3>
             <ul class="feature-list">
@@ -109,22 +124,29 @@
                 <li><strong data-i18n="feat_3_title">Powerful Text Editor:</strong> <span data-i18n="feat_3_desc">Work in a distraction-free mode, use typewriter scrolling, get real-time word counts, and customize fonts and themes.</span></li>
                 <li><strong data-i18n="feat_4_title">Inspiration Hub:</strong> <span data-i18n="feat_4_desc">Search and save images from Pinterest, find atmospheric music with the built-in player, and keep notes attached to every scene.</span></li>
                 <li><strong data-i18n="feat_5_title">Analytics & Goals:</strong> <span data-i18n="feat_5_desc">Set and track writing goals, view your daily progress on charts, and automatically count mentions of your characters and locations.</span></li>
-                <li><strong data-i18n="feat_6_title">Export & Backup:</strong> <span data-i18n="feat_6_desc">Export your manuscript to PDF, DOCX, and EPUB. Create full project backups (.wripro files) that include all your text, notes, and media. The app also creates automatic local backups every 10 minutes.</span></li>
+                <li><strong data-i18n="feat_6_title">Export & Backup:</strong> <span data-i18n="feat_6_desc">Export your manuscript to PDF, DOCX, and EPUB. Create full project backups and enjoy automatic local saves every 10 minutes.</span></li>
             </ul>
 
             <h3 data-i18n="license_title">License</h3>
             <p data-i18n="license_desc">This project is distributed under the MIT License.</p>
         </div>
     </main>
-	
+
     <div id="image-modal" class="modal">
-        <button class="close-modal">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <button class="close-modal"><svg viewBox="0 0 24 24" width="28" height="28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
         <img class="modal-content" id="modal-img" alt="Fullscreen Screenshot">
+    </div>
+
+    <div id="dl-toast" aria-live="polite">
+        <div class="toast-app-icon" id="toast-icon-img"></div>
+        <div class="toast-body">
+            <div class="toast-name" id="toast-name">App</div>
+            <div class="toast-bar-wrap"><div class="toast-bar-fill" id="toast-bar"></div></div>
+            <div class="toast-status" id="toast-status">Preparing…</div>
+        </div>
+        <button class="toast-close" id="toast-close" aria-label="Dismiss">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
     </div>
 
     <footer class="site-footer">
@@ -133,23 +155,17 @@
             <div class="contact-links">
                 <span data-i18n="contact">Contact:</span>
                 <a href="https://t.me/lobstertainment" target="_blank" class="contact-link">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     Telegram
                 </a>
                 <a href="mailto:daniildudarcuk@gmail.com" class="contact-link">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     Email
                 </a>
             </div>
         </div>
-    </footer>	
-	
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
