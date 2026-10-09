@@ -44,7 +44,18 @@ var T = {
         mck_f2_title:"Plan Zajęć:", mck_f2_desc:"Wybierz grupę i kierunek, aby stworzyć swój plan.",
         mck_f3_title:"Notatki i Terminy:", mck_f3_desc:"Dodawaj zadania do przedmiotów i ustawiaj terminy.",
         mck_f4_title:"Aktualności:", mck_f4_desc:"Bądź na bieżąco z najnowszymi informacjami z uczelni.",
-        mck_f5_title:"Bezpieczeństwo i Szybkość:", mck_f5_desc:"Bezpieczne logowanie. Dane lokalne. Tryb ciemny."
+        mck_f5_title:"Bezpieczeństwo i Szybkość:", mck_f5_desc:"Bezpieczne logowanie. Dane lokalne. Tryb ciemny.",
+        uniplan_short_desc:"Planer zajęć i klient USOS dla studentów UKEN",
+        uni_subtitle:"Planer zajęć i klient USOS dla studentów UKEN w Krakowie.",
+        uni_lead:"Nowoczesna, natywna aplikacja na Androida dla studentów Uniwersytetu Komisji Edukacji Narodowej w Krakowie.",
+        uni_desc:"UniPlan łączy przejrzysty kalendarz zajęć ze zintegrowanym portalem USOSweb, inteligentnymi przypomnieniami i aktualnościami uczelni.",
+        uni_f1_title:"Kalendarz zajęć:", uni_f1_desc:"Siatka miesięczna, widok dzienny i lista z postępem zajęć oraz karta „Teraz” z odliczaniem do końca zajęć lub początku kolejnych.",
+        uni_f2_title:"Oceny USOS:", uni_f2_desc:"Zaloguj się przez CAS i przeglądaj przedmioty oraz oceny z podziałem na semestry.",
+        uni_f3_title:"Aktualności USOS:", uni_f3_desc:"Ogłoszenia z formatowaniem, wyróżnionymi ostrzeżeniami „UWAGA!” i aktywnymi linkami. Zdjęcia otwierają się na pełnym ekranie z możliwością powiększania.",
+        uni_f4_title:"Inteligentne przypomnienia:", uni_f4_desc:"Dokładne powiadomienia przed zajęciami, automatycznie wyciszane w trakcie wykładu.",
+        uni_f5_title:"Strefy czasowe:", uni_f5_desc:"Automatyczne wykrywanie, szybki wybór miast i wyszukiwarka stref czasowych.",
+        uni_f6_title:"Wygląd i języki:", uni_f6_desc:"Material Design 3 z kolorami dynamicznymi, tryb jasny i ciemny oraz pięć języków: polski, angielski, rosyjski, białoruski i ukraiński.",
+        uni_req_title:"Wymagania", uni_req_desc:"Android 8.0 (API 26) lub nowszy."       
     },
     en: {
         store_logo:"MyStore", discover:"Discover", desktop_apps:"Desktop Apps",
@@ -69,7 +80,19 @@ var T = {
         mck_f2_title:"Custom Schedule:", mck_f2_desc:"Select your group and direction for a personalized timetable.",
         mck_f3_title:"Notes & Deadlines:", mck_f3_desc:"Add tasks to subjects. Set deadlines and receive push notifications.",
         mck_f4_title:"News:", mck_f4_desc:"Stay updated with university news and class topics.",
-        mck_f5_title:"Secure & Fast:", mck_f5_desc:"Secure login. Data cached locally. Dark mode supported."
+        mck_f5_title:"Secure & Fast:", mck_f5_desc:"Secure login. Data cached locally. Dark mode supported."        ,
+        uniplan_short_desc:"Class planner and USOS client for UKEN students",
+        uni_subtitle:"Class planner and USOS client for UKEN Krakow students.",
+        uni_lead:"A modern, native Android app for students of the University of the National Education Commission in Krakow (UKEN).",
+        uni_desc:"UniPlan combines a clean class calendar with an integrated USOSweb portal, smart reminders and university news.",
+        uni_f1_title:"Class Calendar:", uni_f1_desc:"Monthly grid, daily schedule and list view with progress tracking, plus a \"Now\" card with a live countdown to the end of your class or the start of the next one.",
+        uni_f2_title:"USOS Grades:", uni_f2_desc:"Sign in through CAS and browse your subjects and grades organized by academic semester.",
+        uni_f3_title:"USOS News:", uni_f3_desc:"Read announcements with rich formatting, highlighted \"UWAGA!\" warnings and clickable links. Open images fullscreen and zoom in with pinch or double-tap.",
+        uni_f4_title:"Smart Reminders:", uni_f4_desc:"Exact notifications before class starts, automatically silenced during an active lecture.",
+        uni_f5_title:"Time Zones:", uni_f5_desc:"Automatic detection, quick city presets and a searchable time zone picker.",
+        uni_f6_title:"Design & Languages:", uni_f6_desc:"Material Design 3 with dynamic colors, light and dark themes, and five languages: English, Polish, Russian, Belarusian and Ukrainian.",
+        uni_req_title:"Requirements", uni_req_desc:"Android 8.0 (API 26) or newer."
+
     },
     ru: {
         store_logo:"МойМагазин", discover:"Главная", desktop_apps:"Десктопные приложения",
@@ -94,7 +117,18 @@ var T = {
         mck_f2_title:"Расписание:", mck_f2_desc:"Выберите группу и направление.",
         mck_f3_title:"Заметки и дедлайны:", mck_f3_desc:"Добавляйте задачи и получайте уведомления.",
         mck_f4_title:"Новости:", mck_f4_desc:"Читайте новости университета в приложении.",
-        mck_f5_title:"Безопасность и скорость:", mck_f5_desc:"Безопасный вход. Кэш офлайн. Тёмная тема."
+        mck_f5_title:"Безопасность и скорость:", mck_f5_desc:"Безопасный вход. Кэш офлайн. Тёмная тема."        ,
+        uniplan_short_desc:"Планировщик пар и клиент USOS для студентов UKEN",
+        uni_subtitle:"Планировщик расписания и клиент USOS для студентов UKEN в Кракове.",
+        uni_lead:"Современное нативное Android-приложение для студентов Университета Комиссии национального образования в Кракове (UKEN).",
+        uni_desc:"UniPlan объединяет удобный календарь расписания со встроенным порталом USOSweb, умными напоминаниями и новостями университета.",
+        uni_f1_title:"Календарь расписания:", uni_f1_desc:"Сетка месяца, просмотр дня и список с прогрессом занятий, а также карточка «Сейчас» с обратным отсчётом до конца пары или начала следующей.",
+        uni_f2_title:"Оценки USOS:", uni_f2_desc:"Входите через CAS и смотрите предметы и оценки по семестрам.",
+        uni_f3_title:"Новости USOS:", uni_f3_desc:"Объявления с форматированием, выделенными предупреждениями «UWAGA!» и кликабельными ссылками. Изображения открываются на весь экран с приближением жестами и двойным тапом.",
+        uni_f4_title:"Умные напоминания:", uni_f4_desc:"Точные уведомления перед началом пары, автоматически отключаются во время лекции.",
+        uni_f5_title:"Часовые пояса:", uni_f5_desc:"Автоопределение, быстрый выбор городов и поиск по часовым поясам.",
+        uni_f6_title:"Дизайн и языки:", uni_f6_desc:"Material Design 3 с динамическими цветами, светлая и тёмная темы, пять языков: русский, польский, английский, белорусский и украинский.",
+        uni_req_title:"Требования", uni_req_desc:"Android 8.0 (API 26) или новее."
     }
 };
 
