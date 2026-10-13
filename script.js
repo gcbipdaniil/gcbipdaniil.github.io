@@ -55,7 +55,10 @@ var T = {
         uni_f4_title:"Inteligentne przypomnienia:", uni_f4_desc:"Dokładne powiadomienia przed zajęciami, automatycznie wyciszane w trakcie wykładu.",
         uni_f5_title:"Strefy czasowe:", uni_f5_desc:"Automatyczne wykrywanie, szybki wybór miast i wyszukiwarka stref czasowych.",
         uni_f6_title:"Wygląd i języki:", uni_f6_desc:"Material Design 3 z kolorami dynamicznymi, tryb jasny i ciemny oraz pięć języków: polski, angielski, rosyjski, białoruski i ukraiński.",
-        uni_req_title:"Wymagania", uni_req_desc:"Android 8.0 (API 26) lub nowszy."       
+        uni_req_title:"Wymagania", uni_req_desc:"Android 8.0 (API 26) lub nowszy.",
+        /* download toast */
+        dl_preparing:"Przygotowywanie…", dl_saving:"Zapisywanie pliku…", dl_complete:"Pobieranie zakończone!",
+        dl_opening:"Otwieranie pobierania…", dl_left:"pozostało", dl_downloaded:"pobrano"
     },
     en: {
         store_logo:"MyStore", discover:"Discover", desktop_apps:"Desktop Apps",
@@ -80,7 +83,7 @@ var T = {
         mck_f2_title:"Custom Schedule:", mck_f2_desc:"Select your group and direction for a personalized timetable.",
         mck_f3_title:"Notes & Deadlines:", mck_f3_desc:"Add tasks to subjects. Set deadlines and receive push notifications.",
         mck_f4_title:"News:", mck_f4_desc:"Stay updated with university news and class topics.",
-        mck_f5_title:"Secure & Fast:", mck_f5_desc:"Secure login. Data cached locally. Dark mode supported."        ,
+        mck_f5_title:"Secure & Fast:", mck_f5_desc:"Secure login. Data cached locally. Dark mode supported.",
         uniplan_short_desc:"Class planner and USOS client for UKEN students",
         uni_subtitle:"Class planner and USOS client for UKEN Krakow students.",
         uni_lead:"A modern, native Android app for students of the University of the National Education Commission in Krakow (UKEN).",
@@ -91,8 +94,10 @@ var T = {
         uni_f4_title:"Smart Reminders:", uni_f4_desc:"Exact notifications before class starts, automatically silenced during an active lecture.",
         uni_f5_title:"Time Zones:", uni_f5_desc:"Automatic detection, quick city presets and a searchable time zone picker.",
         uni_f6_title:"Design & Languages:", uni_f6_desc:"Material Design 3 with dynamic colors, light and dark themes, and five languages: English, Polish, Russian, Belarusian and Ukrainian.",
-        uni_req_title:"Requirements", uni_req_desc:"Android 8.0 (API 26) or newer."
-
+        uni_req_title:"Requirements", uni_req_desc:"Android 8.0 (API 26) or newer.",
+        /* download toast */
+        dl_preparing:"Preparing…", dl_saving:"Saving file…", dl_complete:"Download complete!",
+        dl_opening:"Opening download…", dl_left:"left", dl_downloaded:"downloaded"
     },
     ru: {
         store_logo:"МойМагазин", discover:"Главная", desktop_apps:"Десктопные приложения",
@@ -117,7 +122,7 @@ var T = {
         mck_f2_title:"Расписание:", mck_f2_desc:"Выберите группу и направление.",
         mck_f3_title:"Заметки и дедлайны:", mck_f3_desc:"Добавляйте задачи и получайте уведомления.",
         mck_f4_title:"Новости:", mck_f4_desc:"Читайте новости университета в приложении.",
-        mck_f5_title:"Безопасность и скорость:", mck_f5_desc:"Безопасный вход. Кэш офлайн. Тёмная тема."        ,
+        mck_f5_title:"Безопасность и скорость:", mck_f5_desc:"Безопасный вход. Кэш офлайн. Тёмная тема.",
         uniplan_short_desc:"Планировщик пар и клиент USOS для студентов UKEN",
         uni_subtitle:"Планировщик расписания и клиент USOS для студентов UKEN в Кракове.",
         uni_lead:"Современное нативное Android-приложение для студентов Университета Комиссии национального образования в Кракове (UKEN).",
@@ -128,9 +133,22 @@ var T = {
         uni_f4_title:"Умные напоминания:", uni_f4_desc:"Точные уведомления перед началом пары, автоматически отключаются во время лекции.",
         uni_f5_title:"Часовые пояса:", uni_f5_desc:"Автоопределение, быстрый выбор городов и поиск по часовым поясам.",
         uni_f6_title:"Дизайн и языки:", uni_f6_desc:"Material Design 3 с динамическими цветами, светлая и тёмная темы, пять языков: русский, польский, английский, белорусский и украинский.",
-        uni_req_title:"Требования", uni_req_desc:"Android 8.0 (API 26) или новее."
+        uni_req_title:"Требования", uni_req_desc:"Android 8.0 (API 26) или новее.",
+        /* download toast */
+        dl_preparing:"Подготовка…", dl_saving:"Сохранение файла…", dl_complete:"Загрузка завершена!",
+        dl_opening:"Открываем загрузку…", dl_left:"осталось", dl_downloaded:"загружено"
     }
 };
+
+function currentLang() {
+    return localStorage.getItem('lang') || 'pl';
+}
+
+// Translate a key using the current language (fallback: English, then key itself)
+function tr(key) {
+    var lang = currentLang();
+    return (T[lang] && T[lang][key]) || (T.en && T.en[key]) || key;
+}
 
 /* =============================================
    DOM READY
@@ -177,7 +195,7 @@ function initLanguage() {
         o.addEventListener('click', function() { applyLang(o.dataset.lang); });
     });
 
-    applyLang(localStorage.getItem('lang') || 'pl');
+    applyLang(currentLang());
 }
 
 /* =============================================
@@ -251,17 +269,65 @@ function initGallery() {
    DOWNLOAD SYSTEM
    ============================================= */
 
+// ---- Formatting helpers ----
+function fmtBytes(b) {
+    if (b < 1024)        return b + ' B';
+    if (b < 1048576)     return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1048576).toFixed(1) + ' MB';
+}
+
+function fmtSpeed(bps) {
+    return fmtBytes(Math.round(bps)) + '/s';
+}
+
+function fmtTime(sec) {
+    if (!isFinite(sec) || sec < 0) return '…';
+    sec = Math.ceil(sec);
+    if (sec < 60) return sec + ' s';
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return m + ' min ' + s + ' s';
+}
+
+// Speed tracker with smoothing (exponential moving average), so numbers don't jump
+function createSpeedTracker() {
+    var lastT = Date.now(), lastB = 0, speed = 0;
+    return function(received) {
+        var now = Date.now();
+        var dt = (now - lastT) / 1000;
+        if (dt >= 0.4) {
+            var inst = (received - lastB) / dt;
+            speed = speed ? speed * 0.7 + inst * 0.3 : inst;
+            lastT = now;
+            lastB = received;
+        }
+        return speed;
+    };
+}
+
+function buildStatus(received, total, speed) {
+    if (!total) {
+        return fmtBytes(received) + ' ' + tr('dl_downloaded') +
+               (speed ? ' · ' + fmtSpeed(speed) : '') + '…';
+    }
+    var text = fmtBytes(received) + ' / ' + fmtBytes(total);
+    if (speed > 0) {
+        var left = (total - received) / speed;
+        text += ' · ' + fmtSpeed(speed) + ' · ' + fmtTime(left) + ' ' + tr('dl_left');
+    }
+    return text;
+}
+
 // ---- Toast helpers ----
 var toastTimer = null;
 
 function toastShow(appName, iconSrc) {
     clearTimeout(toastTimer);
-    var toast = document.getElementById('dl-toast');
+    var toast  = document.getElementById('dl-toast');
     var nameEl = document.getElementById('toast-name');
     var iconEl = document.getElementById('toast-icon-img');
     if (!toast) return;
     if (nameEl) nameEl.textContent = appName;
-    if (iconEl) iconEl.innerHTML = iconSrc ? '<img src="'+iconSrc+'" alt="">' : '';
+    if (iconEl) iconEl.innerHTML = iconSrc ? '<img src="' + iconSrc + '" alt="">' : '';
     toast.classList.add('show');
 }
 
@@ -280,30 +346,22 @@ function toastHide(delay) {
     }, delay || 0);
 }
 
-function fmtBytes(b) {
-    if (b < 1024)        return b + ' B';
-    if (b < 1048576)     return (b/1024).toFixed(1) + ' KB';
-    return (b/1048576).toFixed(1) + ' MB';
-}
-
-// ---- Ring progress helpers ----
-// For hero button ring: circumference = 2*PI*12 ≈ 75.4
+// ---- Ring / bar helpers ----
+// Hero button ring: circumference = 2*PI*12 ≈ 75.4
 var HERO_CIRC = 75.4;
-// For get-btn ring: circumference = 2*PI*14 ≈ 87.96 — we set 88 in CSS
+// Get-btn ring: circumference = 2*PI*14 ≈ 87.96 — we use 88 (matches CSS)
 var GET_CIRC  = 88;
 
 function setHeroRing(btn, pct) {
     var fill = btn.querySelector('.dl-ring-fill');
     if (!fill) return;
-    var offset = HERO_CIRC - (HERO_CIRC * pct / 100);
-    fill.style.strokeDashoffset = offset;
+    fill.style.strokeDashoffset = HERO_CIRC - (HERO_CIRC * pct / 100);
 }
 
 function setGetRing(btn, pct) {
     var fill = btn.querySelector('.ring-fill');
     if (!fill) return;
-    var offset = GET_CIRC - (GET_CIRC * pct / 100);
-    fill.style.strokeDashoffset = offset;
+    fill.style.strokeDashoffset = GET_CIRC - (GET_CIRC * pct / 100);
 }
 
 function setHeroBar(btn, pct) {
@@ -316,7 +374,7 @@ function setHeroPct(btn, pct) {
     if (el) el.textContent = pct + '%';
 }
 
-// ---- Trigger real file save ----
+// ---- Trigger real file save (instant: the file is already in memory) ----
 function triggerSave(blob, filename) {
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
@@ -329,11 +387,12 @@ function triggerSave(blob, filename) {
 }
 
 // ---- Core streaming download ----
-// Returns a Promise that resolves when done.
-// Calls onProgress(receivedBytes, totalBytes|null) during download.
-function streamDownload(url, onProgress, signal) {
+// Resolves with a Blob. onProgress(receivedBytes, totalBytes|null).
+function streamDownload(url, onProgress, signal, mimeType) {
     return fetch(url, { signal: signal }).then(function(response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
+        if (!response.body || !response.body.getReader) throw new Error('Streaming not supported');
+
         var contentLength = response.headers.get('Content-Length');
         var total = contentLength ? parseInt(contentLength, 10) : null;
         var reader = response.body.getReader();
@@ -343,7 +402,7 @@ function streamDownload(url, onProgress, signal) {
         function pump() {
             return reader.read().then(function(result) {
                 if (result.done) {
-                    return new Blob(chunks);
+                    return new Blob(chunks, mimeType ? { type: mimeType } : undefined);
                 }
                 chunks.push(result.value);
                 received += result.value.length;
@@ -355,85 +414,123 @@ function streamDownload(url, onProgress, signal) {
     });
 }
 
-// ---- Hero download button ----
+function guessMime(filename) {
+    if (/\.apk$/i.test(filename)) return 'application/vnd.android.package-archive';
+    if (/\.zip$/i.test(filename)) return 'application/zip';
+    if (/\.exe$/i.test(filename)) return 'application/vnd.microsoft.portable-executable';
+    return 'application/octet-stream';
+}
+
+// ---- Currently active download (so the toast "×" can cancel it) ----
+var currentAbort = null;
+
+// ---- Shared download runner used by both button types ----
+// hooks: { start(), progress(pct), done(), abort() }
+function startDownload(btn, hooks) {
+    var url      = btn.dataset.url;
+    var filename = btn.dataset.filename || 'download';
+    var appName  = btn.dataset.appname  || 'App';
+    var iconSrc  = btn.dataset.icon     || '';
+
+    var ctrl = new AbortController();
+    currentAbort = ctrl;
+    var track = createSpeedTracker();
+
+    hooks.start();
+    toastShow(appName, iconSrc);
+    toastUpdate(0, tr('dl_preparing'));
+
+    streamDownload(url, function(received, total) {
+        var pct = total
+            ? Math.round(received / total * 100)
+            : Math.min(95, Math.round(Math.log(received + 1) / Math.log(200000000) * 100));
+        hooks.progress(pct);
+        toastUpdate(pct, buildStatus(received, total, track(received)));
+    }, ctrl.signal, guessMime(filename))
+
+    .then(function(blob) {
+        hooks.progress(100);
+        toastUpdate(100, tr('dl_saving'));
+        return new Promise(function(res) { setTimeout(res, 280); }).then(function() {
+            triggerSave(blob, filename);          // file is already downloaded → saves instantly
+            hooks.done();
+            toastUpdate(100, tr('dl_complete'));
+            toastHide(3200);
+        });
+    })
+
+    .catch(function(err) {
+        if (err && err.name === 'AbortError') {
+            hooks.abort();
+            toastHide(0);
+            return;
+        }
+        // Fallback (e.g. CORS blocked): normal browser download
+        console.warn('Stream failed, using fallback:', err && err.message);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        hooks.done();
+        toastUpdate(100, tr('dl_opening'));
+        toastHide(2500);
+    })
+
+    .then(function() {
+        if (currentAbort === ctrl) currentAbort = null;
+    });
+}
+
+// ---- Hero download button (detail pages) ----
 function initHeroBtn(btn) {
     var phase = 'idle'; // idle | downloading | done
-    var abortCtrl = null;
 
     btn.addEventListener('click', function() {
         if (phase !== 'idle') return;
 
-        var url      = btn.dataset.url;
-        var filename = btn.dataset.filename || 'download';
-        var appName  = btn.dataset.appname  || 'App';
-        var iconSrc  = btn.dataset.icon     || '';
-
-        phase = 'downloading';
-        btn.classList.add('is-downloading');
-        setHeroRing(btn, 0);
-        setHeroBar(btn, 0);
-        setHeroPct(btn, 0);
-
-        toastShow(appName, iconSrc);
-        toastUpdate(0, 'Preparing…');
-
-        abortCtrl = new AbortController();
-
-        streamDownload(url, function(received, total) {
-            var pct = total ? Math.round(received / total * 100) : Math.min(95, Math.round(Math.log(received+1)/Math.log(200000000)*100));
-            setHeroRing(btn, pct);
-            setHeroBar(btn, pct);
-            setHeroPct(btn, pct);
-            var statusText = total
-                ? fmtBytes(received) + ' of ' + fmtBytes(total)
-                : fmtBytes(received) + ' downloaded…';
-            toastUpdate(pct, statusText);
-        }, abortCtrl.signal).then(function(blob) {
-            // 100%
-            setHeroRing(btn, 100);
-            setHeroBar(btn, 100);
-            setHeroPct(btn, 100);
-            toastUpdate(100, 'Saving file…');
-
-            return new Promise(function(res) { setTimeout(res, 280); }).then(function() {
-                triggerSave(blob, filename);
+        startDownload(btn, {
+            start: function() {
+                phase = 'downloading';
+                btn.classList.add('is-downloading');
+                setHeroRing(btn, 0);
+                setHeroBar(btn, 0);
+                setHeroPct(btn, 0);
+            },
+            progress: function(pct) {
+                setHeroRing(btn, pct);
+                setHeroBar(btn, pct);
+                setHeroPct(btn, pct);
+            },
+            done: function() {
                 phase = 'done';
                 btn.classList.remove('is-downloading');
                 btn.classList.add('is-done');
-                toastUpdate(100, 'Download complete!');
-                toastHide(3200);
-            });
-        }).catch(function(err) {
-            if (err.name === 'AbortError') {
+            },
+            abort: function() {
                 phase = 'idle';
                 btn.classList.remove('is-downloading');
-                toastHide(0);
-                return;
+                setHeroRing(btn, 0);
+                setHeroBar(btn, 0);
+                setHeroPct(btn, 0);
             }
-            // Fallback: direct browser download
-            console.warn('Stream failed, using fallback:', err.message);
-            var a = document.createElement('a');
-            a.href = url; a.download = filename; a.target = '_blank';
-            document.body.appendChild(a); a.click(); document.body.removeChild(a);
-
-            phase = 'done';
-            btn.classList.remove('is-downloading');
-            btn.classList.add('is-done');
-            toastUpdate(100, 'Opening download…');
-            toastHide(2500);
         });
     });
 }
 
-// ---- Small card GET button ----
+// ---- Small card GET button (index page) ----
 function initGetBtn(btn) {
     var phase = 'idle';
-    var abortCtrl = null;
 
     // Build the button's inner HTML for ring + icons
-    var textContent = btn.querySelector('.btn-text') ? btn.querySelector('.btn-text').textContent : (btn.textContent.trim() || 'Get');
+    var textEl = btn.querySelector('.btn-text');
+    var textContent = textEl ? textEl.textContent : (btn.textContent.trim() || 'Get');
     btn.innerHTML =
-        '<span class="btn-text">'+textContent+'</span>' +
+        '<span class="btn-text">' + textContent + '</span>' +
         '<svg class="get-ring" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" overflow="visible">' +
           '<circle class="ring-track" cx="19" cy="19" r="14"/>' +
           '<circle class="ring-fill"  cx="19" cy="19" r="14"/>' +
@@ -448,86 +545,64 @@ function initGetBtn(btn) {
           '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>' +
         '</span>';
 
+    function resetLater(ms) {
+        setTimeout(function() {
+            phase = 'idle';
+            btn.classList.remove('is-done');
+            setGetRing(btn, 0);
+            var label = btn.querySelector('.btn-text');
+            if (label) label.textContent = tr('btn_get');
+        }, ms);
+    }
+
     btn.addEventListener('click', function(e) {
-        e.preventDefault(); e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Click on the button while downloading = cancel (pause icon is shown in CSS)
+        if (phase === 'downloading') {
+            if (currentAbort) currentAbort.abort();
+            return;
+        }
         if (phase !== 'idle') return;
 
-        var url      = btn.dataset.url;
-        var filename = btn.dataset.filename || 'download';
-        var appName  = btn.dataset.appname  || 'App';
-        var iconSrc  = btn.dataset.icon     || '';
-
-        phase = 'downloading';
-        btn.classList.add('is-downloading');
-        setGetRing(btn, 0);
-
-        toastShow(appName, iconSrc);
-        toastUpdate(0, 'Preparing…');
-
-        abortCtrl = new AbortController();
-
-        streamDownload(url, function(received, total) {
-            var pct = total ? Math.round(received / total * 100) : Math.min(95, Math.round(Math.log(received+1)/Math.log(200000000)*100));
-            setGetRing(btn, pct);
-            toastUpdate(pct, total ? fmtBytes(received)+' / '+fmtBytes(total) : fmtBytes(received)+'…');
-        }, abortCtrl.signal).then(function(blob) {
-            setGetRing(btn, 100);
-            toastUpdate(100, 'Saving…');
-            return new Promise(function(res) { setTimeout(res, 260); }).then(function() {
-                triggerSave(blob, filename);
+        startDownload(btn, {
+            start: function() {
+                phase = 'downloading';
+                btn.classList.add('is-downloading');
+                setGetRing(btn, 0);
+            },
+            progress: function(pct) {
+                setGetRing(btn, pct);
+            },
+            done: function() {
                 phase = 'done';
                 btn.classList.remove('is-downloading');
                 btn.classList.add('is-done');
-                toastUpdate(100, 'Done!');
-                toastHide(2800);
-                // reset after 4s
-                setTimeout(function() {
-                    phase = 'idle';
-                    btn.classList.remove('is-done');
-                    setGetRing(btn, 0);
-                    var lang = localStorage.getItem('lang') || 'pl';
-                    var label = (T[lang] && T[lang]['btn_get']) || 'Get';
-                    btn.querySelector('.btn-text').textContent = label;
-                }, 4000);
-            });
-        }).catch(function(err) {
-            if (err.name === 'AbortError') {
+                resetLater(4000);
+            },
+            abort: function() {
                 phase = 'idle';
                 btn.classList.remove('is-downloading');
-                toastHide(0);
-                return;
-            }
-            var a = document.createElement('a');
-            a.href = url; a.download = filename; a.target = '_blank';
-            document.body.appendChild(a); a.click(); document.body.removeChild(a);
-            phase = 'done';
-            btn.classList.remove('is-downloading');
-            btn.classList.add('is-done');
-            toastUpdate(100, 'Opening…');
-            toastHide(2000);
-            setTimeout(function() {
-                phase = 'idle';
-                btn.classList.remove('is-done');
                 setGetRing(btn, 0);
-            }, 3000);
+            }
         });
     });
 }
 
 function initDownloadButtons() {
     // Hero buttons (detail pages)
-    document.querySelectorAll('.hero-dl-btn').forEach(function(btn) {
-        initHeroBtn(btn);
-    });
+    document.querySelectorAll('.hero-dl-btn').forEach(initHeroBtn);
 
     // Card "Get" buttons (index page)
-    document.querySelectorAll('.get-btn[data-url]').forEach(function(btn) {
-        initGetBtn(btn);
-    });
+    document.querySelectorAll('.get-btn[data-url]').forEach(initGetBtn);
 
-    // Toast close button
+    // Toast close button: cancels an active download, otherwise just hides the toast
     var toastClose = document.getElementById('toast-close');
     if (toastClose) {
-        toastClose.addEventListener('click', function() { toastHide(0); });
+        toastClose.addEventListener('click', function() {
+            if (currentAbort) currentAbort.abort();
+            else toastHide(0);
+        });
     }
 }
