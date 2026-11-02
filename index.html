@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyStore</title>
+    <title>DanStudio</title>
     <link rel="stylesheet" href="styles.css">
 
-    <meta name="description" content="Discover powerful desktop and Android applications designed and developed by Daniil Dudarchuk.">
+    <meta name="description" content="Web, desktop and Android applications by DanStudio (Daniil Dudarchuk): FITEVO, WriterPro, MójMCK, UniPlan.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gcbipdaniil.github.io/">
-    <meta property="og:title" content="Daniil Dudarchuk - App Store">
-    <meta property="og:description" content="Discover powerful desktop and Android applications designed and developed by Daniil Dudarchuk.">
+    <meta property="og:title" content="DanStudio — App Store">
+    <meta property="og:description" content="Web, desktop and Android applications by DanStudio (Daniil Dudarchuk): FITEVO, WriterPro, MójMCK, UniPlan.">
     <meta name="theme-color" content="#f5f5f7">
 
     <!-- ANTI-FLASH: применяем тему до первого рендера -->
@@ -29,7 +29,7 @@
                 <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
                     <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/>
                 </svg>
-                <span data-i18n="store_logo">MyStore</span>
+                <span data-i18n="store_logo">DanStudio</span>
             </a>
             <div class="header-controls">
                 <div class="lang-dropdown">
@@ -54,7 +54,32 @@
     <main class="container">
         <div class="page-header">
             <h1 data-i18n="discover">Discover</h1>
+            <div class="tabs-bar" role="tablist">
+                <button class="tab-btn active" type="button" role="tab" data-tab="apps" data-i18n="tab_apps">Apps</button>
+                <button class="tab-btn" type="button" role="tab" data-tab="about" data-i18n="tab_about">About me</button>
+            </div>
         </div>
+
+        <div class="tab-pane" id="tab-apps">
+        <section class="app-section">
+            <h2 data-i18n="web_apps">Web Apps</h2>
+            <div class="app-grid">
+                <a href="fitevo.html" class="app-card">
+                    <div class="app-icon">
+                        <img src="fitevo-icon.png" alt="FITEVO Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="app-info">
+                        <h3>FITEVO</h3>
+                        <p data-i18n="fitevo_short_desc">Food and calorie diary with a chat assistant</p>
+                    </div>
+                    <div class="app-action">
+                        <button class="get-btn open-btn" type="button" data-open="https://onlinec1.ultra.hostflyby.net/">
+                            <span data-i18n="btn_open">Open</span>
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </section>
 
         <section class="app-section">
             <h2 data-i18n="desktop_apps">Desktop Apps</h2>
@@ -125,6 +150,42 @@
 
             </div>
         </section>
+        </div>
+
+        <div class="tab-pane" id="tab-about" hidden>
+            <section class="about-card">
+                <div class="about-head">
+                    <div class="about-avatar" aria-hidden="true">D</div>
+                    <div>
+                        <h2 class="about-name">Daniil Dudarchuk</h2>
+                        <p class="about-role" data-i18n="about_role">Developer · DanStudio</p>
+                    </div>
+                </div>
+                <p class="lead-text" data-i18n="about_lead">DanStudio is my projects: web, desktop and Android apps that I design and build myself.</p>
+                <p data-i18n="about_p1"></p>
+                <p data-i18n="about_p2"></p>
+                <p data-i18n="about_p3"></p>
+                <p data-i18n="about_p4"></p>
+                <h3 data-i18n="about_skills">Technologies</h3>
+                <div class="chips">
+                    <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">C#</span><span class="chip">Kotlin</span><span class="chip">Android Studio</span>
+                </div>
+                <div class="contact-links about-links">
+                    <a href="https://t.me/lobstertainment" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        Telegram
+                    </a>
+                    <a href="mailto:daniildudarcuk@gmail.com" class="contact-link">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Email
+                    </a>
+                    <a href="https://github.com/gcbipdaniil" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer">
