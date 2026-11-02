@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITEVO — DanStudio</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="description" content="FITEVO is a food and calorie diary that works like an app: chat, barcode scanner, charts, weekly summary and share cards.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gcbipdaniil.github.io/fitevo.html">
+    <meta property="og:title" content="FITEVO — food and calorie diary">
+    <meta property="og:description" content="Tell the chat what you ate and calories are counted for you. Barcode scanner, charts, weekly summary, share cards.">
+    <meta name="theme-color" content="#f5f5f7">
+
+    <!-- ANTI-FLASH: применяем тему до первого рендера -->
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                <span data-i18n="back">Back</span>
+            </a>
+            <div class="header-controls">
+                <div class="lang-dropdown">
+                    <button class="lang-btn">
+                        <span class="current-lang-label">PL</span>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="lang-menu">
+                        <button class="lang-option active" data-lang="pl">Polski</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="ru">Русский</button>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container app-detail-container">
+        <div class="app-header-hero">
+            <div class="app-icon-large">
+                <img src="fitevo-icon.png" alt="FITEVO Icon" onerror="this.style.display='none'">
+            </div>
+            <div class="app-hero-info">
+                <h1>FITEVO</h1>
+                <h2 data-i18n="fit_subtitle">A food diary that counts calories for you.</h2>
+                <div class="download-group">
+                    <a class="download-btn" href="https://onlinec1.ultra.hostflyby.net/" target="_blank" rel="noopener">
+                        <span class="dl-btn-inner">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span class="dl-btn-label" data-i18n="btn_open_app">Open app</span>
+                        </span>
+                    </a>
+                    <a class="download-btn secondary-btn" href="https://onlinec1.ultra.hostflyby.net/about.html" target="_blank" rel="noopener">
+                        <span class="dl-btn-inner">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z"/></svg>
+                            <span class="dl-btn-label" data-i18n="fit_privacy">Privacy policy</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- СКРИНШОТЫ: положите картинки в папку screenshots под именами fitevo-1.png ... fitevo-5.png.
+             Пока файла нет, на его месте показывается заготовка. Нужно больше слотов: скопируйте строку
+             <div class="img-wrapper loading">…</div> и поменяйте номер в имени файла. -->
+        <div class="gallery-container">
+            <div class="gallery-scroll">
+                <div class="img-wrapper loading"><img src="screenshots/fitevo-1.png" alt="FITEVO screenshot 1"><span class="shot-ph" data-i18n="shot_ph">Screenshot</span></div>
+                <div class="img-wrapper loading"><img src="screenshots/fitevo-2.png" alt="FITEVO screenshot 2"><span class="shot-ph" data-i18n="shot_ph">Screenshot</span></div>
+                <div class="img-wrapper loading"><img src="screenshots/fitevo-3.png" alt="FITEVO screenshot 3"><span class="shot-ph" data-i18n="shot_ph">Screenshot</span></div>
+                <div class="img-wrapper loading"><img src="screenshots/fitevo-4.png" alt="FITEVO screenshot 4"><span class="shot-ph" data-i18n="shot_ph">Screenshot</span></div>
+                <div class="img-wrapper loading"><img src="screenshots/fitevo-5.png" alt="FITEVO screenshot 5"><span class="shot-ph" data-i18n="shot_ph">Screenshot</span></div>
+            </div>
+        </div>
+
+        <div class="app-description">
+            <p class="lead-text" data-i18n="fit_lead"></p>
+            <p data-i18n="fit_desc"></p>
+
+            <h3 data-i18n="key_features">Key Features</h3>
+            <ul class="feature-list">
+                <li><strong data-i18n="fit_f1_title"></strong> <span data-i18n="fit_f1_desc"></span></li>
+                <li><strong data-i18n="fit_f2_title"></strong> <span data-i18n="fit_f2_desc"></span></li>
+                <li><strong data-i18n="fit_f3_title"></strong> <span data-i18n="fit_f3_desc"></span></li>
+                <li><strong data-i18n="fit_f4_title"></strong> <span data-i18n="fit_f4_desc"></span></li>
+                <li><strong data-i18n="fit_f5_title"></strong> <span data-i18n="fit_f5_desc"></span></li>
+                <li><strong data-i18n="fit_f6_title"></strong> <span data-i18n="fit_f6_desc"></span></li>
+                <li><strong data-i18n="fit_f7_title"></strong> <span data-i18n="fit_f7_desc"></span></li>
+            </ul>
+
+            <h3 data-i18n="fit_install_title">Installation</h3>
+            <p data-i18n="fit_install_desc"></p>
+
+            <h3 data-i18n="fit_req_title">Requirements</h3>
+            <p data-i18n="fit_req_desc"></p>
+        </div>
+    </main>
+
+    <div id="image-modal" class="modal">
+        <button class="close-modal"><svg viewBox="0 0 24 24" width="28" height="28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <img class="modal-content" id="modal-img" alt="Fullscreen Screenshot">
+    </div>
+
+    <div id="dl-toast" aria-live="polite">
+        <div class="toast-app-icon" id="toast-icon-img"></div>
+        <div class="toast-body">
+            <div class="toast-name" id="toast-name">App</div>
+            <div class="toast-bar-wrap"><div class="toast-bar-fill" id="toast-bar"></div></div>
+            <div class="toast-status" id="toast-status">Preparing…</div>
+        </div>
+        <button class="toast-close" id="toast-close" aria-label="Dismiss">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p data-i18n="dev_info">Designed and developed by Daniil Dudarchuk</p>
+            <div class="contact-links">
+                <span data-i18n="contact">Contact:</span>
+                <a href="https://t.me/lobstertainment" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Telegram
+                </a>
+                <a href="mailto:daniildudarcuk@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Email
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
