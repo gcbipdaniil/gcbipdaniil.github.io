@@ -525,3 +525,44 @@ main { animation: fadeUp 0.4s cubic-bezier(0.22,1,0.36,1) 0.04s both; }
     .download-group { justify-content: center; }
     .app-description { padding: 20px 16px; }
 }
+/* =============================================
+   DanStudio: tabs, about, web apps
+   ============================================= */
+.tabs-bar { display: inline-flex; gap: 4px; padding: 4px; margin-top: 18px; background: var(--surface2); border-radius: 999px; }
+.tab-btn {
+    border: 0; background: transparent; color: var(--text2); font: inherit; font-weight: 600; font-size: .9375rem;
+    padding: 8px 20px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s;
+}
+.tab-btn.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow-s, 0 1px 3px rgba(0,0,0,.12)); }
+.tab-pane[hidden] { display: none; }
+
+.about-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 32px; max-width: 760px; }
+.about-head { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.about-avatar {
+    width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: var(--accent); color: #fff; font-size: 1.75rem; font-weight: 700; flex-shrink: 0;
+}
+.about-name { font-size: 1.5rem; margin: 0; }
+.about-role { margin: 2px 0 0; color: var(--text2); }
+.about-card p { line-height: 1.65; margin: 0 0 14px; }
+.about-card h3 { margin: 24px 0 12px; font-size: 1.0625rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.chip { padding: 6px 14px; border-radius: 999px; background: var(--surface2); font-size: .875rem; font-weight: 600; }
+.about-links { justify-content: flex-start; }
+
+.open-btn { min-width: 76px; padding: 0 16px; }
+.secondary-btn { background: var(--surface2) !important; color: var(--accent) !important; }
+.download-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.download-group a.download-btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+
+.img-wrapper { position: relative; }
+.shot-ph { display: none; }
+.img-wrapper.empty { min-width: 200px; aspect-ratio: 9/19; border: 2px dashed var(--border2); border-radius: var(--r-l); display: flex; align-items: center; justify-content: center; background: var(--surface); }
+.img-wrapper.empty img { display: none; }
+.img-wrapper.empty .shot-ph { display: block; color: var(--text2); font-size: .875rem; }
+
+@media (max-width: 640px) {
+    .about-card { padding: 22px 18px; }
+    .tabs-bar { display: flex; }
+    .tab-btn { flex: 1; }
+}
