@@ -22,11 +22,11 @@
    ============================================= */
 var T = {
     pl: {
-        store_logo:"MójSklep", discover:"Odkrywaj", desktop_apps:"Aplikacje Desktopowe",
+        store_logo:"DanStudio", web_apps:"Aplikacje webowe",btn_open:"Otwórz",btn_open_app:"Otwórz aplikację",tab_apps:"Aplikacje",tab_about:"O mnie",shot_ph:"Zrzut ekranu",fitevo_short_desc:"Dziennik jedzenia i kalorii z czatem",fit_subtitle:"Dziennik żywieniowy, który sam liczy kalorie.",fit_privacy:"Polityka danych",fit_lead:"FITEVO to webowy dziennik jedzenia i kalorii, który działa jak zwykła aplikacja na telefonie.",fit_desc:"Napisz w czacie, co zjadłeś, a kalorie i makroskładniki zostaną policzone za Ciebie. Dane zostają na Twoim urządzeniu i na Twoim koncie Puter, a nie na moim serwerze.",fit_f1_title:"Czat:",fit_f1_desc:"opisz posiłek zwykłym zdaniem i dodaj go do dziennika jednym dotknięciem.",fit_f2_title:"Dzienna norma:",fit_f2_desc:"kalorie i makroskładniki liczone według Twoich parametrów i celu.",fit_f3_title:"Skaner kodów kreskowych:",fit_f3_desc:"wspólna baza produktów, do której każdy może dodać brakującą pozycję.",fit_f4_title:"Wykresy i prognoza:",fit_f4_desc:"waga, kalorie i postępy w czasie oraz prognoza dojścia do celu.",fit_f5_title:"Raport tygodniowy:",fit_f5_desc:"podsumowanie tygodnia na jednym ekranie i karta do udostępnienia, tworzona na urządzeniu.",fit_f6_title:"Higiena i osiągnięcia:",fit_f6_desc:"śledzenie nawyków, woda i odznaki za regularność.",fit_f7_title:"Plan diety i offline:",fit_f7_desc:"plan z własnych produktów; aplikacja działa także bez internetu.",fit_install_title:"Instalacja",fit_install_desc:"Na telefonie aplikację trzeba dodać na ekran główny (PWA). iPhone: w Safari dotknij „Udostępnij” → „Do ekranu początkowego”. Android: w Chrome wybierz „Zainstaluj aplikację”. Na komputerze wystarczy przeglądarka.",fit_req_title:"Wymagania",fit_req_desc:"Darmowe konto Puter i nowoczesna przeglądarka (Safari, Chrome, Edge, Firefox).",about_role:"Programista · DanStudio",about_lead:"DanStudio to moje prywatne centrum projektów: aplikacje webowe, desktopowe i na Androida, które sam projektuję i piszę.",about_p1:"Cześć! Nazywam się Daniil. Od dzieciństwa interesuję się technologiami komputerowymi. Programowaniem zainteresowałem się w wieku 11 lat, co doprowadziło mnie do nauki różnych języków i technologii webowych. Teraz aktywnie uczę się Kotlina i pracy w Android Studio.",about_p2:"Tworzę projekty internetowe: HTML, CSS i JavaScript dla interaktywności oraz PHP na backendzie. Znam też Python i C#, więc potrafię wybrać narzędzie do zadania.",about_p3:"Interesuje mnie tworzenie aplikacji internetowych i wsparcie techniczne. Chętnie poświęcam dużo czasu pracy i stale rozwijam swoje umiejętności.",about_p4:"Mam ponad 5 lat doświadczenia w kontaktach z klientami. Dzięki temu lepiej rozumiem potrzeby użytkowników i potrafię jasno się komunikować.",about_skills:"Technologie", discover:"Odkrywaj", desktop_apps:"Aplikacje Desktopowe",
         writerpro_desc:"Potężna aplikacja desktopowa dla pisarzy", btn_get:"Pobierz",
         android_apps:"Aplikacje Android", mojmck_short_desc:"Twój cyfrowy dziennik uniwersytecki",
         back:"Wróć", key_features:"Kluczowe funkcje", license_title:"Licencja",
-        dev_info:"Zaprojektowane i stworzone przez Daniila Dudarchuka", contact:"Kontakt:",
+        dev_info:"Zaprojektowane i stworzone przez DanStudio (Daniil Dudarchuk)", contact:"Kontakt:",
         wp_subtitle:"Potężna aplikacja desktopowa dla pisarzy.",
         wp_lead:"Bez rejestracji, bez chmury. Po prostu potężne narzędzie działające na Twoim komputerze.",
         wp_desc:"WriterPro to kompletne środowisko do planowania, pisania i analizowania kreatywnych projektów.",
@@ -61,11 +61,11 @@ var T = {
         dl_opening:"Otwieranie pobierania…", dl_left:"pozostało", dl_downloaded:"pobrano"
     },
     en: {
-        store_logo:"MyStore", discover:"Discover", desktop_apps:"Desktop Apps",
+        store_logo:"DanStudio", web_apps:"Web Apps",btn_open:"Open",btn_open_app:"Open app",tab_apps:"Apps",tab_about:"About me",shot_ph:"Screenshot",fitevo_short_desc:"Food and calorie diary with a chat",fit_subtitle:"A food diary that counts calories for you.",fit_privacy:"Privacy policy",fit_lead:"FITEVO is a web food and calorie diary that works like a regular phone app.",fit_desc:"Tell the chat what you ate and calories and macros are counted for you. Your data stays on your device and in your own Puter account, not on my server.",fit_f1_title:"Chat:",fit_f1_desc:"describe a meal in plain words and add it to your diary with one tap.",fit_f2_title:"Daily target:",fit_f2_desc:"calories and macros calculated from your parameters and goal.",fit_f3_title:"Barcode scanner:",fit_f3_desc:"a shared product base where anyone can add a missing item.",fit_f4_title:"Charts and forecast:",fit_f4_desc:"weight, calories and progress over time, plus a forecast of reaching your goal.",fit_f5_title:"Weekly report:",fit_f5_desc:"your week on one screen and a share card generated on your device.",fit_f6_title:"Hygiene and achievements:",fit_f6_desc:"habit tracking, water and badges for consistency.",fit_f7_title:"Diet plan and offline:",fit_f7_desc:"a plan built from your own products; the app also works without internet.",fit_install_title:"Installation",fit_install_desc:"On a phone the app must be added to the home screen (PWA). iPhone: in Safari tap Share → “Add to Home Screen”. Android: in Chrome choose “Install app”. On a computer a browser is enough.",fit_req_title:"Requirements",fit_req_desc:"A free Puter account and a modern browser (Safari, Chrome, Edge, Firefox).",about_role:"Developer · DanStudio",about_lead:"DanStudio is my personal hub of projects: web, desktop and Android apps that I design and build myself.",about_p1:"Hi! My name is Daniil. I have loved computers since childhood. My interest in programming began at the age of 11 and led me to learn various languages and web technologies. Now I'm actively studying Kotlin and working with Android Studio.",about_p2:"I build web projects with HTML, CSS and JavaScript for interactivity, and PHP on the backend. I also know Python and C#, so I can pick the right tool for the job.",about_p3:"I'm interested in web application development and technical support. I'm happy to put a lot of time into my work and keep improving my skills.",about_p4:"I have over 5 years of experience communicating with clients, which helped me understand user needs and explain things clearly.",about_skills:"Technologies", discover:"Discover", desktop_apps:"Desktop Apps",
         writerpro_desc:"Powerful desktop application for writers", btn_get:"Get",
         android_apps:"Android Apps", mojmck_short_desc:"Your digital diary for university life",
         back:"Back", key_features:"Key Features", license_title:"License",
-        dev_info:"Designed and developed by Daniil Dudarchuk", contact:"Contact:",
+        dev_info:"Designed and developed by DanStudio (Daniil Dudarchuk)", contact:"Contact:",
         wp_subtitle:"A powerful desktop application for writers.",
         wp_lead:"No registrations, no cloud. Just a powerful tool that runs on your computer.",
         wp_desc:"WriterPro is a complete environment for planning, writing, and analyzing your creative projects.",
@@ -100,11 +100,11 @@ var T = {
         dl_opening:"Opening download…", dl_left:"left", dl_downloaded:"downloaded"
     },
     ru: {
-        store_logo:"МойМагазин", discover:"Главная", desktop_apps:"Десктопные приложения",
+        store_logo:"DanStudio", web_apps:"Веб-приложения",btn_open:"Открыть",btn_open_app:"Открыть приложение",tab_apps:"Приложения",tab_about:"Обо мне",shot_ph:"Скриншот",fitevo_short_desc:"Дневник питания и калорий с чатом",fit_subtitle:"Дневник питания, который сам считает калории.",fit_privacy:"Политика данных",fit_lead:"FITEVO — веб-дневник питания и калорий, который работает как обычное приложение на телефоне.",fit_desc:"Напишите в чате, что вы съели, и калории с БЖУ посчитаются сами. Ваши данные остаются на вашем устройстве и в вашем аккаунте Puter, а не на моём сервере.",fit_f1_title:"Чат:",fit_f1_desc:"опишите приём пищи обычными словами и добавьте его в дневник одним нажатием.",fit_f2_title:"Дневная норма:",fit_f2_desc:"калории и БЖУ считаются по вашим параметрам и цели.",fit_f3_title:"Сканер штрихкодов:",fit_f3_desc:"общая база продуктов, в которую любой может добавить недостающий.",fit_f4_title:"Графики и прогноз:",fit_f4_desc:"вес, калории и прогресс во времени, плюс прогноз достижения цели.",fit_f5_title:"Недельный отчёт:",fit_f5_desc:"итоги недели на одном экране и карточка «Поделиться», которая создаётся на устройстве.",fit_f6_title:"Гигиена и достижения:",fit_f6_desc:"трекер привычек, вода и награды за регулярность.",fit_f7_title:"План питания и офлайн:",fit_f7_desc:"план из ваших продуктов; приложение работает и без интернета.",fit_install_title:"Установка",fit_install_desc:"На телефоне приложение нужно добавить на главный экран (PWA). iPhone: в Safari нажмите «Поделиться» → «На экран «Домой»». Android: в Chrome выберите «Установить приложение». На компьютере достаточно браузера.",fit_req_title:"Требования",fit_req_desc:"Бесплатный аккаунт Puter и современный браузер (Safari, Chrome, Edge, Firefox).",about_role:"Разработчик · DanStudio",about_lead:"DanStudio — мои личные проекты: веб-, десктопные и Android-приложения, которые я сам придумываю и пишу.",about_p1:"Привет! Меня зовут Даниил. С детства я увлекаюсь компьютерными технологиями. Интерес к программированию начался в 11 лет и привёл меня к изучению разных языков и веб-технологий. Сейчас я активно изучаю Kotlin и работу в Android Studio.",about_p2:"Делаю веб-проекты: HTML, CSS и JavaScript для интерактивности и PHP для бэкенда. Также владею Python и C#, поэтому могу выбрать подходящий инструмент под задачу.",about_p3:"Интересуюсь разработкой веб-приложений и технической поддержкой. Готов вкладывать много времени в работу и постоянно совершенствовать навыки.",about_p4:"Имею более 5 лет опыта общения с клиентами. Он помог понимать потребности пользователей и ясно объяснять.",about_skills:"Технологии", discover:"Главная", desktop_apps:"Десктопные приложения",
         writerpro_desc:"Мощное приложение для писателей", btn_get:"Скачать",
         android_apps:"Android приложения", mojmck_short_desc:"Твой цифровой дневник для учебы",
         back:"Назад", key_features:"Ключевые особенности", license_title:"Лицензия",
-        dev_info:"Спроектировано и разработано Даниилом Дударчуком", contact:"Контакты:",
+        dev_info:"Спроектировано и разработано DanStudio (Даниил Дударчук)", contact:"Контакты:",
         wp_subtitle:"Мощное десктопное приложение для писателей.",
         wp_lead:"Без регистраций и облаков. Мощный инструмент на вашем компьютере.",
         wp_desc:"WriterPro — среда для планирования, написания и анализа творческих проектов.",
@@ -158,6 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initPageTransitions();
     initGallery();
     initDownloadButtons();
+    initOpenButtons();
+    initTabs();
 });
 
 /* =============================================
@@ -239,13 +241,17 @@ function initGallery() {
 
     document.querySelectorAll('.img-wrapper img').forEach(function(img) {
         var wrap = img.parentElement;
-        function onLoad() { img.classList.add('loaded'); wrap.classList.remove('loading'); }
-        if (img.complete) { onLoad(); }
+        function mark(ok) {
+            wrap.classList.remove('loading');
+            if (ok) img.classList.add('loaded'); else wrap.classList.add('empty');
+        }
+        if (img.complete) { mark(img.naturalWidth > 0); }
         else {
-            img.addEventListener('load', onLoad);
-            img.addEventListener('error', function() { wrap.classList.remove('loading'); });
+            img.addEventListener('load', function() { mark(true); });
+            img.addEventListener('error', function() { mark(false); });
         }
         img.addEventListener('click', function() {
+            if (wrap.classList.contains('empty')) return;
             modalImg.src = img.src;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -605,4 +611,34 @@ function initDownloadButtons() {
             else toastHide(0);
         });
     }
+}
+
+/* =============================================
+   OPEN BUTTONS (web apps) + TABS
+   ============================================= */
+function initOpenButtons() {
+    document.querySelectorAll('.open-btn[data-open]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            window.open(btn.getAttribute('data-open'), '_blank', 'noopener');
+        });
+    });
+}
+
+function initTabs() {
+    var btns = document.querySelectorAll('.tab-btn[data-tab]');
+    if (!btns.length) return;
+    function show(name, push) {
+        if (!document.getElementById('tab-' + name)) name = 'apps';
+        btns.forEach(function(b) {
+            var on = b.dataset.tab === name;
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        document.querySelectorAll('.tab-pane').forEach(function(p) { p.hidden = p.id !== 'tab-' + name; });
+        try { if (push) history.replaceState(null, '', name === 'about' ? '#about' : location.pathname + location.search); } catch (e) {}
+    }
+    btns.forEach(function(b) { b.addEventListener('click', function() { show(b.dataset.tab, true); }); });
+    window.addEventListener('hashchange', function() { show(location.hash === '#about' ? 'about' : 'apps', false); });
+    show(location.hash === '#about' ? 'about' : 'apps', false);
 }
